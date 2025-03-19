@@ -23,6 +23,7 @@ async function main(): Promise<void> {
   }
   let successful = 0;
   const accountsFlow = fs.createWriteStream("accounts.txt", { flags: "a" });
+  const tokenAccount = fs.createWriteStream("token.txt", { flags: "a" });
 
   try {
     let retryCount = 0;
@@ -38,7 +39,8 @@ async function main(): Promise<void> {
           const wallet = flow.getWallet();
           logMessage(successful + 1, count, `Wallet Address: ${wallet.publicKey}`, "success");
           logMessage(successful + 1, count, `Private Key: ${wallet.secretKey}`, "success");
-          accountsFlow.write(`Wallet Address : ${wallet.publicKey}\nPrivate Key : ${wallet.secretKey}\nToken : ${token}\n`);
+          accountsFlow.write(`Wallet Address : ${wallet.publicKey}\nPrivate Key : ${wallet.secretKey}\n`);
+          tokenAccount.write(`${token}\n`);
           accountsFlow.write(`===================================================================\n`);
           successful++;
           retryCount = 0;
@@ -58,6 +60,7 @@ async function main(): Promise<void> {
 
   } finally {
     accountsFlow.end();
+    tokenAccount.end();
     console.log(chalk.magenta("\n[*] Done!"));
     rl.close();
   }

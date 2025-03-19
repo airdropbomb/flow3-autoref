@@ -87,7 +87,7 @@ export class Flow3Referral {
       });
       if (response?.data.statusCode === 200) {
         logMessage(this.curentNum, this.total, 'Register Account Success', "success");
-        return response.data.data.accessToken
+        return response.data.data.refreshToken
       }
       return null
     } catch (error: any) {
