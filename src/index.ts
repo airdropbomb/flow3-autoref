@@ -25,23 +25,37 @@ async function main(): Promise<void> {
   const accountsFlow = fs.createWriteStream("accounts.txt", { flags: "a" });
 
   try {
+    let retryCount = 0;
+    const maxRetries = 3;
     while (successful < count) {
       console.log(chalk.white("-".repeat(85)));
       const currentProxy = await getRandomProxy(successful + 1, count);
       const flow = new Flow3Referral(refCode, currentProxy, successful + 1, count);
 
       try {
-        await flow.login();
-        const wallet = flow.getWallet();
-        logMessage(successful + 1, count, `Wallet Address: ${wallet.publicKey}`, "success");
-        logMessage(successful + 1, count, `Private Key: ${wallet.secretKey}`, "success");
-        accountsFlow.write(`Wallet Address : ${wallet.publicKey}\nPrivate Key : ${wallet.secretKey}\n`);
-        accountsFlow.write(`===================================================================\n`);
-        successful++;
+        const token = await flow.login();
+        if (token) {
+          const wallet = flow.getWallet();
+          logMessage(successful + 1, count, `Wallet Address: ${wallet.publicKey}`, "success");
+          logMessage(successful + 1, count, `Private Key: ${wallet.secretKey}`, "success");
+          accountsFlow.write(`Wallet Address : ${wallet.publicKey}\nPrivate Key : ${wallet.secretKey}\nToken : ${token}\n`);
+          accountsFlow.write(`===================================================================\n`);
+          successful++;
+          retryCount = 0;
+        }
       } catch (error) {
         logMessage(successful + 1, count, `Error: ${(error as Error).message}, retrying...`, "error");
+        retryCount++;
+        if (retryCount >= maxRetries) {
+          console.log(chalk.red("Max retries reached, skipping..."));
+          successful++;
+          retryCount = 0;
+        } else {
+          await new Promise((resolve) => setTimeout(resolve, 3000));
+        }
       }
     }
+
   } finally {
     accountsFlow.end();
     console.log(chalk.magenta("\n[*] Done!"));
