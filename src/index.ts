@@ -40,7 +40,7 @@ async function main(): Promise<void> {
           logMessage(successful + 1, count, `Wallet Address: ${wallet.publicKey}`, "success");
           logMessage(successful + 1, count, `Private Key: ${wallet.secretKey}`, "success");
           accountsFlow.write(`Wallet Address : ${wallet.publicKey}\nPrivate Key : ${wallet.secretKey}\n`);
-          tokenAccount.write(`${token}\n`);
+          tokenAccount.write(`${wallet.secretKey}\n`);
           accountsFlow.write(`===================================================================\n`);
           successful++;
           retryCount = 0;
