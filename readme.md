@@ -11,15 +11,15 @@ This bot automates the process of creating accounts and using referral codes for
 ## Requirements
 
 - Node.js v18.20.6 LTS [Download](https://nodejs.org/dist/v18.20.6/node-v18.20.6-x64.msi).
-- Account Flow3 [Flow3](https://dashboard.flow3.tech/?ref=UVRKPHgSp)
-- Proxy (Optional). Best Proxy [Cherry Proxy](https://center.cherryproxy.com/Login/Register?invite=029ad2d3)
+- Account Flow3 [Flow3](https://dashboard.flow3.tech/?ref=Df73XFUUi)
+- Proxy (Optional). Best Proxy [Proxy Cheap](https://app.proxy-cheap.com/r/kSseKS)
 
 ## Installation
 
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/ahlulmukh/flow3-autoref.git
+   git clone https://github.com/airdropbomb/flow3-autoref.git
    cd flow3-autoref
    ```
 
@@ -57,17 +57,15 @@ This bot automates the process of creating accounts and using referral codes for
 
 ## Stay Connected
 
-- Channel Telegram : [Telegram](https://t.me/elpuqus)
-- Channel WhatsApp : [Whatsapp](https://whatsapp.com/channel/0029VavBRhGBqbrEF9vxal1R)
-- Discord : [Discord](https://discord.com/invite/uKM4UCAccY)
+- Channel Telegram : [Telegram](https://t.me/airdropbombnode)
+- Channel Youtube : [Youtube](https://youtube.com/@airdropbombnode)
 
 ## Donation
 
 If you would like to support the development of this project, you can make a donation using the following addresses:
 
-- Solana: `FdHsx8He55QgRCSv6NMEpFfkjXFsXFEeWEpJpo7sUQZe`
-- EVM: `0x406de5ec09201002c45fdd408ab23159cd12fa3e`
-- BTC: `bc1prze475lgalevngrhwq6r9wyng3rl3zskyru4rn4k6j8kwzmmczmqcd7u7y`
+- Solana: `FbYFzZh4UqDxbfr47psQuQ1BAfD6r1kAzvsvsJdbXV1B`
+- EVM: `0x6Ff9f7991dDb946A096b937e5e02D9b7c422f89C`
 
 ## Disclaimer
 
